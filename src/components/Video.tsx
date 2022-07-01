@@ -1,5 +1,6 @@
 import { DefaultUi, Player, Youtube } from "@vime/react";
 import { gql, useQuery } from "@apollo/client";
+import { GetLessonBySlugResponse, VideoProps } from "../types";
 import { DiscordLogo, FileArrowDown, Lightning } from "phosphor-react";
 import { Card } from "./Card";
 
@@ -19,23 +20,6 @@ const GET_LESSON_BY_SLUG_QUERY = gql`
     }
   }
 `;
-
-interface GetLessonBySlugResponse {
-  lesson: {
-    title: string;
-    videoId: string;
-    description: string;
-    teacher: {
-      name: string;
-      avatarURL: string;
-      bio: string;
-    };
-  };
-}
-
-interface VideoProps {
-  lessonSlug: string;
-}
 
 export function Video(props: VideoProps) {
   const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {

@@ -1,11 +1,5 @@
-import { CaretRight, IconProps } from "phosphor-react";
-import { ReactNode } from "react";
-
-interface CardProps {
-  title: string;
-  icon: ReactNode;
-  description: string;
-}
+import { CaretRight } from "phosphor-react";
+import { CardProps } from "../types";
 
 export function Card({ title, icon, description }: CardProps) {
   return (
